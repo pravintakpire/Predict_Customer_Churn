@@ -1,0 +1,35 @@
+# Data files (too large for GitHub)
+data/
+
+# Submission CSVs (generated outputs)
+submission_*.csv
+*_tuning_results.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env
+.env.*
+*.pem
+*.key
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Outputs
+outputs/
+checkpoints/
