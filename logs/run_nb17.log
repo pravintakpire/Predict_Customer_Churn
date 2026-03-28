@@ -1,0 +1,204 @@
+Environment : Local
+GPU         : CPU only
+XGBoost     : 3.0.3
+Playground train : (594194, 21)
+Playground test  : (254655, 20)
+Original (IBM)   : (7043, 21)
+
+Playground churn rate : 0.2252
+Original   churn rate : 0.2654
+scale_pos_weight      : 3.4403
+Original TotalCharges NaNs fixed: 11 rows → median-filled later
+Feature engineering function defined.
+New EDA features: n_security_services, is_fiber_no_support, is_new_mtm,
+                  is_echeck_mtm, is_high_charge_mtm, is_senior_alone, contract_ord
+Dropping low-signal cols: ['gender', 'PhoneService']
+Categorical cols after drop: ['Partner', 'Dependents', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']
+Numeric cols: ['id', 'SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']
+Total features   : 32
+X_playground     : (594194, 32)
+X_orig           : (7043, 32)
+X_test           : (254655, 32)
+
+Feature list:
+    1. SeniorCitizen
+    2. Partner
+    3. Dependents
+    4. tenure
+    5. MultipleLines
+    6. InternetService
+    7. OnlineSecurity
+    8. OnlineBackup
+    9. DeviceProtection
+   10. TechSupport
+   11. StreamingTV
+   12. StreamingMovies
+   13. Contract
+   14. PaperlessBilling
+   15. PaymentMethod
+   16. MonthlyCharges
+   17. TotalCharges
+   18. num_sum ◀ PROVEN FE
+   19. num_mean ◀ PROVEN FE
+   20. num_std ◀ PROVEN FE
+   21. num_max ◀ PROVEN FE
+   22. num_min ◀ PROVEN FE
+   23. Average_Monthly_Actual ◀ PROVEN FE
+   24. Monthly_diff ◀ PROVEN FE
+   25. Monthly_ratio ◀ PROVEN FE
+   26. n_security_services ◀ NEW (EDA)
+   27. is_fiber_no_support ◀ NEW (EDA)
+   28. is_new_mtm ◀ NEW (EDA)
+   29. is_echeck_mtm ◀ NEW (EDA)
+   30. is_high_charge_mtm ◀ NEW (EDA)
+   31. is_senior_alone ◀ NEW (EDA)
+   32. contract_ord ◀ NEW (EDA)
+XGB device=cpu  grow_policy=lossguide  scale_pos_weight=3.4403
+
+Optuna: 50 trials × 5-fold CV
+Optuna Trials:   0%|          | 0/50 [00:00<?, ?trial/s]Optuna Trials:   0%|          | 0/50 [03:31<?, ?trial/s, AUC=0.91391, Best=0.91391]Optuna Trials:   2%|▏         | 1/50 [03:31<2:52:36, 211.35s/trial, AUC=0.91391, Best=0.91391]Optuna Trials:   2%|▏         | 1/50 [07:31<2:52:36, 211.35s/trial, AUC=0.91343, Best=0.91391]Optuna Trials:   4%|▍         | 2/50 [07:31<3:02:42, 228.39s/trial, AUC=0.91343, Best=0.91391]Optuna Trials:   4%|▍         | 2/50 [11:47<3:02:42, 228.39s/trial, AUC=0.91631, Best=0.91631]Optuna Trials:   6%|▌         | 3/50 [11:47<3:08:41, 240.88s/trial, AUC=0.91631, Best=0.91631]Optuna Trials:   6%|▌         | 3/50 [13:42<3:08:41, 240.88s/trial, AUC=0.91623, Best=0.91631]Optuna Trials:   8%|▊         | 4/50 [13:42<2:26:41, 191.33s/trial, AUC=0.91623, Best=0.91631]Optuna Trials:   8%|▊         | 4/50 [18:11<2:26:41, 191.33s/trial, AUC=0.91655, Best=0.91655]Optuna Trials:  10%|█         | 5/50 [18:11<2:44:25, 219.23s/trial, AUC=0.91655, Best=0.91655]Optuna Trials:  10%|█         | 5/50 [21:16<2:44:25, 219.23s/trial, AUC=0.91622, Best=0.91655]Optuna Trials:  12%|█▏        | 6/50 [21:16<2:32:15, 207.63s/trial, AUC=0.91622, Best=0.91655]Optuna Trials:  12%|█▏        | 6/50 [25:36<2:32:15, 207.63s/trial, AUC=0.91583, Best=0.91655]Optuna Trials:  14%|█▍        | 7/50 [25:36<2:41:07, 224.82s/trial, AUC=0.91583, Best=0.91655]Optuna Trials:  14%|█▍        | 7/50 [29:35<2:41:07, 224.82s/trial, AUC=0.91548, Best=0.91655]Optuna Trials:  16%|█▌        | 8/50 [29:35<2:40:31, 229.31s/trial, AUC=0.91548, Best=0.91655]Optuna Trials:  16%|█▌        | 8/50 [33:19<2:40:31, 229.31s/trial, AUC=0.91499, Best=0.91655]Optuna Trials:  18%|█▊        | 9/50 [33:19<2:35:27, 227.51s/trial, AUC=0.91499, Best=0.91655]Optuna Trials:  18%|█▊        | 9/50 [37:45<2:35:27, 227.51s/trial, AUC=0.91659, Best=0.91659]Optuna Trials:  20%|██        | 10/50 [37:45<2:39:43, 239.58s/trial, AUC=0.91659, Best=0.91659]Optuna Trials:  20%|██        | 10/50 [41:53<2:39:43, 239.58s/trial, AUC=0.91635, Best=0.91659]Optuna Trials:  22%|██▏       | 11/50 [41:53<2:37:23, 242.13s/trial, AUC=0.91635, Best=0.91659]Optuna Trials:  22%|██▏       | 11/50 [45:42<2:37:23, 242.13s/trial, AUC=0.91648, Best=0.91659]Optuna Trials:  24%|██▍       | 12/50 [45:42<2:30:47, 238.08s/trial, AUC=0.91648, Best=0.91659]Optuna Trials:  24%|██▍       | 12/50 [49:50<2:30:47, 238.08s/trial, AUC=0.91651, Best=0.91659]Optuna Trials:  26%|██▌       | 13/50 [49:50<2:28:41, 241.11s/trial, AUC=0.91651, Best=0.91659]Optuna Trials:  26%|██▌       | 13/50 [54:49<2:28:41, 241.11s/trial, AUC=0.91597, Best=0.91659]Optuna Trials:  28%|██▊       | 14/50 [54:49<2:35:02, 258.40s/trial, AUC=0.91597, Best=0.91659]Optuna Trials:  28%|██▊       | 14/50 [58:43<2:35:02, 258.40s/trial, AUC=0.91656, Best=0.91659]Optuna Trials:  30%|███       | 15/50 [58:43<2:26:34, 251.28s/trial, AUC=0.91656, Best=0.91659]Optuna Trials:  30%|███       | 15/50 [1:01:14<2:26:34, 251.28s/trial, AUC=0.91659, Best=0.91659]Optuna Trials:  32%|███▏      | 16/50 [1:01:14<2:05:13, 220.99s/trial, AUC=0.91659, Best=0.91659]Optuna Trials:  32%|███▏      | 16/50 [1:04:11<2:05:13, 220.99s/trial, AUC=0.91641, Best=0.91659]Optuna Trials:  34%|███▍      | 17/50 [1:04:11<1:54:12, 207.65s/trial, AUC=0.91641, Best=0.91659]Optuna Trials:  34%|███▍      | 17/50 [1:08:25<1:54:12, 207.65s/trial, AUC=0.91667, Best=0.91667]Optuna Trials:  36%|███▌      | 18/50 [1:08:25<1:58:12, 221.64s/trial, AUC=0.91667, Best=0.91667]Optuna Trials:  36%|███▌      | 18/50 [1:12:36<1:58:12, 221.64s/trial, AUC=0.91656, Best=0.91667]Optuna Trials:  38%|███▊      | 19/50 [1:12:36<1:59:09, 230.62s/trial, AUC=0.91656, Best=0.91667]Optuna Trials:  38%|███▊      | 19/50 [1:16:49<1:59:09, 230.62s/trial, AUC=0.91667, Best=0.91667]Optuna Trials:  40%|████      | 20/50 [1:16:49<1:58:38, 237.28s/trial, AUC=0.91667, Best=0.91667]Optuna Trials:  40%|████      | 20/50 [1:20:54<1:58:38, 237.28s/trial, AUC=0.91648, Best=0.91667]Optuna Trials:  42%|████▏     | 21/50 [1:20:54<1:55:48, 239.62s/trial, AUC=0.91648, Best=0.91667]Optuna Trials:  42%|████▏     | 21/50 [1:23:38<1:55:48, 239.62s/trial, AUC=0.91649, Best=0.91667]Optuna Trials:  44%|████▍     | 22/50 [1:23:38<1:41:09, 216.75s/trial, AUC=0.91649, Best=0.91667]Optuna Trials:  44%|████▍     | 22/50 [1:26:50<1:41:09, 216.75s/trial, AUC=0.91661, Best=0.91667]Optuna Trials:  46%|████▌     | 23/50 [1:26:50<1:34:17, 209.54s/trial, AUC=0.91661, Best=0.91667]Optuna Trials:  46%|████▌     | 23/50 [1:30:54<1:34:17, 209.54s/trial, AUC=0.91641, Best=0.91667]Optuna Trials:  48%|████▊     | 24/50 [1:30:54<1:35:13, 219.75s/trial, AUC=0.91641, Best=0.91667]Optuna Trials:  48%|████▊     | 24/50 [1:33:53<1:35:13, 219.75s/trial, AUC=0.91660, Best=0.91667]Optuna Trials:  50%|█████     | 25/50 [1:33:53<1:26:27, 207.51s/trial, AUC=0.91660, Best=0.91667]Optuna Trials:  50%|█████     | 25/50 [1:37:44<1:26:27, 207.51s/trial, AUC=0.91652, Best=0.91667]Optuna Trials:  52%|█████▏    | 26/50 [1:37:44<1:25:50, 214.58s/trial, AUC=0.91652, Best=0.91667]Optuna Trials:  52%|█████▏    | 26/50 [1:41:47<1:25:50, 214.58s/trial, AUC=0.91638, Best=0.91667]Optuna Trials:  54%|█████▍    | 27/50 [1:41:47<1:25:31, 223.12s/trial, AUC=0.91638, Best=0.91667]Optuna Trials:  54%|█████▍    | 27/50 [1:45:12<1:25:31, 223.12s/trial, AUC=0.91661, Best=0.91667]Optuna Trials:  56%|█████▌    | 28/50 [1:45:12<1:19:48, 217.64s/trial, AUC=0.91661, Best=0.91667]Optuna Trials:  56%|█████▌    | 28/50 [1:49:05<1:19:48, 217.64s/trial, AUC=0.91599, Best=0.91667]Optuna Trials:  58%|█████▊    | 29/50 [1:49:05<1:17:47, 222.28s/trial, AUC=0.91599, Best=0.91667]Optuna Trials:  58%|█████▊    | 29/50 [1:53:27<1:17:47, 222.28s/trial, AUC=0.91534, Best=0.91667]Optuna Trials:  60%|██████    | 30/50 [1:53:27<1:18:05, 234.26s/trial, AUC=0.91534, Best=0.91667]Optuna Trials:  60%|██████    | 30/50 [1:57:22<1:18:05, 234.26s/trial, AUC=0.91617, Best=0.91667]Optuna Trials:  62%|██████▏   | 31/50 [1:57:22<1:14:13, 234.37s/trial, AUC=0.91617, Best=0.91667]Optuna Trials:  62%|██████▏   | 31/50 [2:00:51<1:14:13, 234.37s/trial, AUC=0.91656, Best=0.91667]Optuna Trials:  64%|██████▍   | 32/50 [2:00:51<1:08:02, 226.83s/trial, AUC=0.91656, Best=0.91667]Optuna Trials:  64%|██████▍   | 32/50 [2:04:20<1:08:02, 226.83s/trial, AUC=0.91661, Best=0.91667]Optuna Trials:  66%|██████▌   | 33/50 [2:04:20<1:02:45, 221.49s/trial, AUC=0.91661, Best=0.91667]Optuna Trials:  66%|██████▌   | 33/50 [2:08:23<1:02:45, 221.49s/trial, AUC=0.91644, Best=0.91667]Optuna Trials:  68%|██████▊   | 34/50 [2:08:23<1:00:46, 227.89s/trial, AUC=0.91644, Best=0.91667]Optuna Trials:  68%|██████▊   | 34/50 [2:11:39<1:00:46, 227.89s/trial, AUC=0.91662, Best=0.91667]Optuna Trials:  70%|███████   | 35/50 [2:11:39<54:33, 218.24s/trial, AUC=0.91662, Best=0.91667]  Optuna Trials:  70%|███████   | 35/50 [2:13:33<54:33, 218.24s/trial, AUC=0.91645, Best=0.91667]Optuna Trials:  72%|███████▏  | 36/50 [2:13:33<43:38, 187.05s/trial, AUC=0.91645, Best=0.91667]Optuna Trials:  72%|███████▏  | 36/50 [2:17:35<43:38, 187.05s/trial, AUC=0.91656, Best=0.91667]Optuna Trials:  74%|███████▍  | 37/50 [2:17:35<44:07, 203.64s/trial, AUC=0.91656, Best=0.91667]Optuna Trials:  74%|███████▍  | 37/50 [2:21:38<44:07, 203.64s/trial, AUC=0.91592, Best=0.91667]Optuna Trials:  76%|███████▌  | 38/50 [2:21:38<43:04, 215.37s/trial, AUC=0.91592, Best=0.91667]Optuna Trials:  76%|███████▌  | 38/50 [2:25:47<43:04, 215.37s/trial, AUC=0.91643, Best=0.91667]Optuna Trials:  78%|███████▊  | 39/50 [2:25:47<41:20, 225.51s/trial, AUC=0.91643, Best=0.91667]Optuna Trials:  78%|███████▊  | 39/50 [2:29:50<41:20, 225.51s/trial, AUC=0.91657, Best=0.91667]Optuna Trials:  80%|████████  | 40/50 [2:29:50<38:27, 230.80s/trial, AUC=0.91657, Best=0.91667]Optuna Trials:  80%|████████  | 40/50 [2:34:15<38:27, 230.80s/trial, AUC=0.91470, Best=0.91667]Optuna Trials:  82%|████████▏ | 41/50 [2:34:15<36:07, 240.84s/trial, AUC=0.91470, Best=0.91667]Optuna Trials:  82%|████████▏ | 41/50 [2:37:22<36:07, 240.84s/trial, AUC=0.91658, Best=0.91667]Optuna Trials:  84%|████████▍ | 42/50 [2:37:22<29:59, 224.95s/trial, AUC=0.91658, Best=0.91667]Optuna Trials:  84%|████████▍ | 42/50 [2:41:36<29:59, 224.95s/trial, AUC=0.91665, Best=0.91667]Optuna Trials:  86%|████████▌ | 43/50 [2:41:36<27:13, 233.40s/trial, AUC=0.91665, Best=0.91667]Optuna Trials:  86%|████████▌ | 43/50 [2:45:40<27:13, 233.40s/trial, AUC=0.91648, Best=0.91667]Optuna Trials:  88%|████████▊ | 44/50 [2:45:40<23:40, 236.73s/trial, AUC=0.91648, Best=0.91667]Optuna Trials:  88%|████████▊ | 44/50 [2:49:42<23:40, 236.73s/trial, AUC=0.91516, Best=0.91667]Optuna Trials:  90%|█████████ | 45/50 [2:49:42<19:51, 238.24s/trial, AUC=0.91516, Best=0.91667]Optuna Trials:  90%|█████████ | 45/50 [2:53:28<19:51, 238.24s/trial, AUC=0.91658, Best=0.91667]Optuna Trials:  92%|█████████▏| 46/50 [2:53:28<15:38, 234.64s/trial, AUC=0.91658, Best=0.91667]Optuna Trials:  92%|█████████▏| 46/50 [2:55:51<15:38, 234.64s/trial, AUC=0.91658, Best=0.91667]Optuna Trials:  94%|█████████▍| 47/50 [2:55:51<10:21, 207.02s/trial, AUC=0.91658, Best=0.91667]Optuna Trials:  94%|█████████▍| 47/50 [3:00:01<10:21, 207.02s/trial, AUC=0.91643, Best=0.91667]Optuna Trials:  96%|█████████▌| 48/50 [3:00:01<07:20, 220.04s/trial, AUC=0.91643, Best=0.91667]Optuna Trials:  96%|█████████▌| 48/50 [3:04:10<07:20, 220.04s/trial, AUC=0.91625, Best=0.91667]Optuna Trials:  98%|█████████▊| 49/50 [3:04:10<03:48, 228.65s/trial, AUC=0.91625, Best=0.91667]Optuna Trials:  98%|█████████▊| 49/50 [3:08:11<03:48, 228.65s/trial, AUC=0.91642, Best=0.91667]Optuna Trials: 100%|██████████| 50/50 [3:08:11<00:00, 232.47s/trial, AUC=0.91642, Best=0.91667]Optuna Trials: 100%|██████████| 50/50 [3:08:11<00:00, 225.83s/trial, AUC=0.91642, Best=0.91667]
+
+=======================================================
+Best CV AUC    : 0.91667
+Best iteration : 977
+  learning_rate            : 0.06056170209169891
+  max_depth                : 5
+  max_leaves               : 30
+  min_child_weight         : 13.824321079630481
+  subsample                : 0.9409889622495747
+  colsample_bytree         : 0.5128446206564021
+  colsample_bylevel        : 0.446223321209546
+  reg_alpha                : 0.0013355725409517276
+  reg_lambda               : 0.007528447563190383
+  gamma                    : 4.61990407184121e-05
+=======================================================
+Multi-Seed Ensemble: 5 seeds × 10 folds = 50 models
+Original data weight: 0.3  (7,043 extra rows per fold)
+Seeds:   0%|          | 0/5 [00:00<?, ?it/s]
+  Folds:   0%|          | 0/10 [00:00<?, ?it/s][A
+  Folds:   0%|          | 0/10 [00:12<?, ?it/s, fold_auc=0.91655, best_iter=922][A
+  Folds:  10%|█         | 1/10 [00:12<01:55, 12.82s/it, fold_auc=0.91655, best_iter=922][A
+  Folds:  10%|█         | 1/10 [00:24<01:55, 12.82s/it, fold_auc=0.91607, best_iter=908][A
+  Folds:  20%|██        | 2/10 [00:24<01:39, 12.43s/it, fold_auc=0.91607, best_iter=908][A
+  Folds:  20%|██        | 2/10 [00:37<01:39, 12.43s/it, fold_auc=0.91858, best_iter=957][A
+  Folds:  30%|███       | 3/10 [00:37<01:28, 12.58s/it, fold_auc=0.91858, best_iter=957][A
+  Folds:  30%|███       | 3/10 [00:50<01:28, 12.58s/it, fold_auc=0.91619, best_iter=995][A
+  Folds:  40%|████      | 4/10 [00:50<01:16, 12.82s/it, fold_auc=0.91619, best_iter=995][A
+  Folds:  40%|████      | 4/10 [01:03<01:16, 12.82s/it, fold_auc=0.91669, best_iter=920][A
+  Folds:  50%|█████     | 5/10 [01:03<01:03, 12.68s/it, fold_auc=0.91669, best_iter=920][A
+  Folds:  50%|█████     | 5/10 [01:17<01:03, 12.68s/it, fold_auc=0.91730, best_iter=1174][A
+  Folds:  60%|██████    | 6/10 [01:17<00:52, 13.15s/it, fold_auc=0.91730, best_iter=1174][A
+  Folds:  60%|██████    | 6/10 [01:31<00:52, 13.15s/it, fold_auc=0.91868, best_iter=1175][A
+  Folds:  70%|███████   | 7/10 [01:31<00:40, 13.45s/it, fold_auc=0.91868, best_iter=1175][A
+  Folds:  70%|███████   | 7/10 [01:45<00:40, 13.45s/it, fold_auc=0.91749, best_iter=1036][A
+  Folds:  80%|████████  | 8/10 [01:45<00:27, 13.56s/it, fold_auc=0.91749, best_iter=1036][A
+  Folds:  80%|████████  | 8/10 [01:56<00:27, 13.56s/it, fold_auc=0.91594, best_iter=817] [A
+  Folds:  90%|█████████ | 9/10 [01:56<00:12, 12.83s/it, fold_auc=0.91594, best_iter=817][A
+  Folds:  90%|█████████ | 9/10 [02:08<00:12, 12.83s/it, fold_auc=0.91444, best_iter=863][A
+  Folds: 100%|██████████| 10/10 [02:08<00:00, 12.46s/it, fold_auc=0.91444, best_iter=863][A
+                                                                                         [ASeeds:   0%|          | 0/5 [02:08<?, ?it/s, seed_oof=0.91679]Seeds:  20%|██        | 1/5 [02:08<08:33, 128.25s/it, seed_oof=0.91679]
+  Folds:   0%|          | 0/10 [00:00<?, ?it/s][A
+  Folds:   0%|          | 0/10 [00:14<?, ?it/s, fold_auc=0.91609, best_iter=1139][A
+  Folds:  10%|█         | 1/10 [00:14<02:10, 14.54s/it, fold_auc=0.91609, best_iter=1139][A
+  Folds:  10%|█         | 1/10 [00:27<02:10, 14.54s/it, fold_auc=0.91814, best_iter=962] [A
+  Folds:  20%|██        | 2/10 [00:27<01:48, 13.60s/it, fold_auc=0.91814, best_iter=962][A
+  Folds:  20%|██        | 2/10 [00:41<01:48, 13.60s/it, fold_auc=0.91803, best_iter=1142][A
+  Folds:  30%|███       | 3/10 [00:41<01:36, 13.86s/it, fold_auc=0.91803, best_iter=1142][A
+  Folds:  30%|███       | 3/10 [00:55<01:36, 13.86s/it, fold_auc=0.91661, best_iter=1054][A
+  Folds:  40%|████      | 4/10 [00:55<01:23, 13.91s/it, fold_auc=0.91661, best_iter=1054][A
+  Folds:  40%|████      | 4/10 [01:08<01:23, 13.91s/it, fold_auc=0.91800, best_iter=916] [A
+  Folds:  50%|█████     | 5/10 [01:08<01:06, 13.38s/it, fold_auc=0.91800, best_iter=916][A
+  Folds:  50%|█████     | 5/10 [01:20<01:06, 13.38s/it, fold_auc=0.91608, best_iter=910][A
+  Folds:  60%|██████    | 6/10 [01:20<00:52, 13.02s/it, fold_auc=0.91608, best_iter=910][A
+  Folds:  60%|██████    | 6/10 [01:34<00:52, 13.02s/it, fold_auc=0.91515, best_iter=1091][A
+  Folds:  70%|███████   | 7/10 [01:34<00:40, 13.40s/it, fold_auc=0.91515, best_iter=1091][A
+  Folds:  70%|███████   | 7/10 [01:48<00:40, 13.40s/it, fold_auc=0.91682, best_iter=1163][A
+  Folds:  80%|████████  | 8/10 [01:48<00:27, 13.65s/it, fold_auc=0.91682, best_iter=1163][A
+  Folds:  80%|████████  | 8/10 [02:02<00:27, 13.65s/it, fold_auc=0.91653, best_iter=1013][A
+  Folds:  90%|█████████ | 9/10 [02:02<00:13, 13.57s/it, fold_auc=0.91653, best_iter=1013][A
+  Folds:  90%|█████████ | 9/10 [02:14<00:13, 13.57s/it, fold_auc=0.91636, best_iter=954] [A
+  Folds: 100%|██████████| 10/10 [02:14<00:00, 13.32s/it, fold_auc=0.91636, best_iter=954][A
+                                                                                         [ASeeds:  20%|██        | 1/5 [04:23<08:33, 128.25s/it, seed_oof=0.91677]Seeds:  40%|████      | 2/5 [04:23<06:36, 132.24s/it, seed_oof=0.91677]
+  Folds:   0%|          | 0/10 [00:00<?, ?it/s][A
+  Folds:   0%|          | 0/10 [00:14<?, ?it/s, fold_auc=0.91890, best_iter=1115][A
+  Folds:  10%|█         | 1/10 [00:14<02:07, 14.16s/it, fold_auc=0.91890, best_iter=1115][A
+  Folds:  10%|█         | 1/10 [00:26<02:07, 14.16s/it, fold_auc=0.91724, best_iter=886] [A
+  Folds:  20%|██        | 2/10 [00:26<01:43, 12.91s/it, fold_auc=0.91724, best_iter=886][A
+  Folds:  20%|██        | 2/10 [00:39<01:43, 12.91s/it, fold_auc=0.91608, best_iter=960][A
+  Folds:  30%|███       | 3/10 [00:39<01:31, 13.11s/it, fold_auc=0.91608, best_iter=960][A
+  Folds:  30%|███       | 3/10 [00:52<01:31, 13.11s/it, fold_auc=0.91625, best_iter=1013][A
+  Folds:  40%|████      | 4/10 [00:52<01:19, 13.24s/it, fold_auc=0.91625, best_iter=1013][A
+  Folds:  40%|████      | 4/10 [01:05<01:19, 13.24s/it, fold_auc=0.91749, best_iter=951] [A
+  Folds:  50%|█████     | 5/10 [01:05<01:05, 13.14s/it, fold_auc=0.91749, best_iter=951][A
+  Folds:  50%|█████     | 5/10 [01:20<01:05, 13.14s/it, fold_auc=0.91615, best_iter=1142][A
+  Folds:  60%|██████    | 6/10 [01:20<00:54, 13.56s/it, fold_auc=0.91615, best_iter=1142][A
+  Folds:  60%|██████    | 6/10 [01:33<00:54, 13.56s/it, fold_auc=0.91537, best_iter=961] [A
+  Folds:  70%|███████   | 7/10 [01:33<00:40, 13.55s/it, fold_auc=0.91537, best_iter=961][A
+  Folds:  70%|███████   | 7/10 [01:48<00:40, 13.55s/it, fold_auc=0.91684, best_iter=1084][A
+  Folds:  80%|████████  | 8/10 [01:48<00:27, 13.83s/it, fold_auc=0.91684, best_iter=1084][A
+  Folds:  80%|████████  | 8/10 [02:02<00:27, 13.83s/it, fold_auc=0.91634, best_iter=1147][A
+  Folds:  90%|█████████ | 9/10 [02:02<00:14, 14.03s/it, fold_auc=0.91634, best_iter=1147][A
+  Folds:  90%|█████████ | 9/10 [02:15<00:14, 14.03s/it, fold_auc=0.91685, best_iter=925] [A
+  Folds: 100%|██████████| 10/10 [02:15<00:00, 13.61s/it, fold_auc=0.91685, best_iter=925][A
+                                                                                         [ASeeds:  40%|████      | 2/5 [06:38<06:36, 132.24s/it, seed_oof=0.91674]Seeds:  60%|██████    | 3/5 [06:38<04:27, 133.74s/it, seed_oof=0.91674]
+  Folds:   0%|          | 0/10 [00:00<?, ?it/s][A
+  Folds:   0%|          | 0/10 [00:12<?, ?it/s, fold_auc=0.91723, best_iter=971][A
+  Folds:  10%|█         | 1/10 [00:12<01:56, 12.94s/it, fold_auc=0.91723, best_iter=971][A
+  Folds:  10%|█         | 1/10 [00:27<01:56, 12.94s/it, fold_auc=0.91524, best_iter=1150][A
+  Folds:  20%|██        | 2/10 [00:27<01:49, 13.64s/it, fold_auc=0.91524, best_iter=1150][A
+  Folds:  20%|██        | 2/10 [00:38<01:49, 13.64s/it, fold_auc=0.91767, best_iter=836] [A
+  Folds:  30%|███       | 3/10 [00:38<01:28, 12.63s/it, fold_auc=0.91767, best_iter=836][A
+  Folds:  30%|███       | 3/10 [00:51<01:28, 12.63s/it, fold_auc=0.91512, best_iter=978][A
+  Folds:  40%|████      | 4/10 [00:51<01:17, 12.89s/it, fold_auc=0.91512, best_iter=978][A
+  Folds:  40%|████      | 4/10 [01:06<01:17, 12.89s/it, fold_auc=0.91969, best_iter=1147][A
+  Folds:  50%|█████     | 5/10 [01:06<01:07, 13.48s/it, fold_auc=0.91969, best_iter=1147][A
+  Folds:  50%|█████     | 5/10 [01:19<01:07, 13.48s/it, fold_auc=0.91693, best_iter=985] [A
+  Folds:  60%|██████    | 6/10 [01:19<00:53, 13.39s/it, fold_auc=0.91693, best_iter=985][A
+  Folds:  60%|██████    | 6/10 [01:33<00:53, 13.39s/it, fold_auc=0.91776, best_iter=1162][A
+  Folds:  70%|███████   | 7/10 [01:33<00:40, 13.65s/it, fold_auc=0.91776, best_iter=1162][A
+  Folds:  70%|███████   | 7/10 [01:47<00:40, 13.65s/it, fold_auc=0.91400, best_iter=1094][A
+  Folds:  80%|████████  | 8/10 [01:47<00:27, 13.81s/it, fold_auc=0.91400, best_iter=1094][A
+  Folds:  80%|████████  | 8/10 [02:02<00:27, 13.81s/it, fold_auc=0.91693, best_iter=1176][A
+  Folds:  90%|█████████ | 9/10 [02:02<00:13, 13.94s/it, fold_auc=0.91693, best_iter=1176][A
+  Folds:  90%|█████████ | 9/10 [02:16<00:13, 13.94s/it, fold_auc=0.91769, best_iter=1077][A
+  Folds: 100%|██████████| 10/10 [02:16<00:00, 14.11s/it, fold_auc=0.91769, best_iter=1077][A
+                                                                                          [ASeeds:  60%|██████    | 3/5 [08:55<04:27, 133.74s/it, seed_oof=0.91682]Seeds:  80%|████████  | 4/5 [08:55<02:14, 134.90s/it, seed_oof=0.91682]
+  Folds:   0%|          | 0/10 [00:00<?, ?it/s][A
+  Folds:   0%|          | 0/10 [00:13<?, ?it/s, fold_auc=0.91810, best_iter=993][A
+  Folds:  10%|█         | 1/10 [00:13<02:01, 13.49s/it, fold_auc=0.91810, best_iter=993][A
+  Folds:  10%|█         | 1/10 [00:26<02:01, 13.49s/it, fold_auc=0.91575, best_iter=956][A
+  Folds:  20%|██        | 2/10 [00:26<01:45, 13.14s/it, fold_auc=0.91575, best_iter=956][A
+  Folds:  20%|██        | 2/10 [00:40<01:45, 13.14s/it, fold_auc=0.91529, best_iter=1161][A
+  Folds:  30%|███       | 3/10 [00:40<01:35, 13.71s/it, fold_auc=0.91529, best_iter=1161][A
+  Folds:  30%|███       | 3/10 [00:55<01:35, 13.71s/it, fold_auc=0.91726, best_iter=1171][A
+  Folds:  40%|████      | 4/10 [00:55<01:23, 13.96s/it, fold_auc=0.91726, best_iter=1171][A
+  Folds:  40%|████      | 4/10 [01:08<01:23, 13.96s/it, fold_auc=0.91489, best_iter=939] [A
+  Folds:  50%|█████     | 5/10 [01:08<01:08, 13.65s/it, fold_auc=0.91489, best_iter=939][A
+  Folds:  50%|█████     | 5/10 [01:22<01:08, 13.65s/it, fold_auc=0.91659, best_iter=1067][A
+  Folds:  60%|██████    | 6/10 [01:22<00:55, 13.87s/it, fold_auc=0.91659, best_iter=1067][A
+  Folds:  60%|██████    | 6/10 [01:36<00:55, 13.87s/it, fold_auc=0.91786, best_iter=1015][A
+  Folds:  70%|███████   | 7/10 [01:36<00:41, 13.85s/it, fold_auc=0.91786, best_iter=1015][A
+  Folds:  70%|███████   | 7/10 [01:50<00:41, 13.85s/it, fold_auc=0.91563, best_iter=1084][A
+  Folds:  80%|████████  | 8/10 [01:50<00:28, 14.08s/it, fold_auc=0.91563, best_iter=1084][A
+  Folds:  80%|████████  | 8/10 [02:02<00:28, 14.08s/it, fold_auc=0.91790, best_iter=840] [A
+  Folds:  90%|█████████ | 9/10 [02:02<00:13, 13.35s/it, fold_auc=0.91790, best_iter=840][A
+  Folds:  90%|█████████ | 9/10 [02:16<00:13, 13.35s/it, fold_auc=0.91903, best_iter=1052][A
+  Folds: 100%|██████████| 10/10 [02:16<00:00, 13.63s/it, fold_auc=0.91903, best_iter=1052][A
+                                                                                          [ASeeds:  80%|████████  | 4/5 [11:12<02:14, 134.90s/it, seed_oof=0.91682]Seeds: 100%|██████████| 5/5 [11:12<00:00, 135.65s/it, seed_oof=0.91682]Seeds: 100%|██████████| 5/5 [11:12<00:00, 134.50s/it, seed_oof=0.91682]
+
+=======================================================
+Fold AUC : 0.91680 ± 0.00121
+OOF AUC  : 0.91700
+=======================================================
+Saved → ./submission_xgb_eda_fe.csv
+Pred range : [0.0001, 0.9962]
+Pred mean  : 0.3409
+       id     Churn
+0  594194  0.264949
+1  594195  0.000984
+2  594196  0.302456
+3  594197  0.012684
+4  594198  0.776351
+You must authenticate before you can call the Kaggle API.
+Follow the instructions to authenticate at: https://github.com/Kaggle/kaggle-cli/blob/main/docs/README.md#authentication
+
